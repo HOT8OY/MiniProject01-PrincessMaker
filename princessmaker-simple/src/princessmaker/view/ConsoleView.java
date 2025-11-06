@@ -184,7 +184,7 @@ public class ConsoleView {
         return sel;
     }
     public void showJobMessage(Princess princess) {
-        System.out.println("\n\n" + lineSplitter + lineSplitter);
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n" + lineSplitter + lineSplitter);
         System.out.println("\n\t\t" + "[직업선택 완료]");
         System.out.println("\n\n\t\t"+princess.getName() + "은(는) " + princess.getJob().getJobName() + "에 취직했다!");
         System.out.println("\n\t\t"+"이제부터 직업에 따른 능력치 상승률이 증가합니다!");
@@ -193,9 +193,47 @@ public class ConsoleView {
         sc.nextLine();
     }
     public void showEnding(String endingName, String message){
-        System.out.println("게임 종료!");
-        System.out.println("엔딩: " + endingName);
-        System.out.println(message);
+        System.out.println("\n\n\n\n\n\n\n\n\n" + lineSplitter + lineSplitter);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\n\t\t숨가쁘게 달려온 24개월의 여정이 끝났습니다.");
+        try {
+            Thread.sleep(3500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\t\t당신의 열성적인 지도하에 공주가 이룬 성과를 확인할 시간 입니다.");
+        try {
+            Thread.sleep(3500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\t\t준비가 되셨다면 Enter를 눌러 확인해 주세요.\n\n");
+        sc.nextLine();  // 버퍼 제거용
+        sc.nextLine();
+        System.out.println("\n\n\n\n\n\n\n\n\n" + lineSplitter + lineSplitter);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\n\t\t엔딩: " + endingName);
+        try {
+            Thread.sleep(3500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.print("\n\t\t" + message + "\n\n\n");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.print("\t\t[ 게임을 플레이 해주셔서 감사합니다! 다음에 다시 만나요~~ ]");
+        sc.nextLine();
     }
     public void close(){
         sc.close();
