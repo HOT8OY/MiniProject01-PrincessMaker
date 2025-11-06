@@ -9,8 +9,8 @@ public class ActivityService {
     public ActivityService(){    }
     // 메서드
     public void executeActivity(Princess princess, Activity activity) {
-        int primaryIncrease = (int)((Math.random() * 6) + 10);  // 10~15 까지 6개의 랜덤 숫자를 반환
-        int secondaryIncrease = (int) ((Math.random() * 3) + 3);    // 3~5 까지의 3개의 랜덤 숫자를 반환
+        int primaryIncrease = (int)((Math.random() * 6) + 7);  // 7~12 까지 6개의 랜덤 숫자를 반환
+        int secondaryIncrease = (int) ((Math.random() * 3) + 2);    // 2~4 까지의 3개의 랜덤 숫자를 반환
         // 직업 보정 적용
         if (princess.getJob() != null) {
             String bonusStat = princess.getJob().getBonusStat();
