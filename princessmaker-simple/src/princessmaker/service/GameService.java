@@ -3,6 +3,8 @@ package princessmaker.service;
 import princessmaker.model.*;
 import princessmaker.view.ConsoleView;
 
+import java.util.Scanner;
+
 
 public class GameService {
     // 각 객체 생성
@@ -28,6 +30,7 @@ public class GameService {
     public void startGame() {
         view.showWelcome();
         String name = view.inputName();
+
         princess = new Princess(name);      // !!! 프린세스에 사용자가 입력한 name으로 객체 생성 !!!
         view.showIntro(princess);
 
@@ -50,7 +53,8 @@ public class GameService {
     /* =========================================================================================================== */
                                             /* 활동 후 활동 결과까지 반환 메소드 */
     private void performActivity() {
-        int choice = view.selectActivity(princess);
+        int choice = 0;
+        choice = view.selectActivity(princess, choice);
         Activity activity = null;
 
         // 선택에 따라 활동 결정
@@ -61,7 +65,7 @@ public class GameService {
         } else if (choice == 3) {
             activity = activities[2]; // 사교
         } else {
-            System.out.println("잘못된 선택입니다. 운동을 합니다.");
+            System.out.println("\t\t"+"잘못된 선택입니다. 운동을 합니다.");
             activity = activities[0];
         }
 
@@ -90,6 +94,7 @@ public class GameService {
     /* =========================================================================================================== */
                                         /* 13턴 시작 시 Job을 선택하는 메소드 */
     private void selectJob() {
+        Scanner sc = new Scanner(System.in);
         int choice = view.selectJob(princess);
         Job job = null;
 
@@ -100,8 +105,14 @@ public class GameService {
         } else if (choice == 3) {
             job = new Celebrity("연애인", "매력");
         } else {
-            System.out.println("잘못된 선택입니다. 군인이 됩니다.");
             job = new Soldier("군인", "체력");
+            System.out.println("\n\n" + "────────────────────────────────────────────────────────────────────────────────");
+            System.out.println("\n\n\t\t\t\t\t"+"[잘못된 선택]");
+            System.out.println("\n\t\t"+"당신은 인생에서 되돌릴 수 없는 실수를 하였습니다!");
+            System.out.println("\n\t\t\t\t\t"+"군인이 됩니다.");
+            System.out.print("\n\n[Enter를 누르시면 다음 화면으로 넘어갑니다]");
+            sc.nextLine();
+            sc.nextLine();  // 버퍼 제거용
         }
 
         princess.setJob(job);

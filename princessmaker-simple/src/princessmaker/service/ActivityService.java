@@ -3,8 +3,6 @@ package princessmaker.service;
 import princessmaker.model.Activity;
 import princessmaker.model.Princess;
 
-import java.util.Random;
-
 public class ActivityService {
     /* 이 클래스는 활동 실행과 능력치 계산을 담당한다 */
     // 생성자
@@ -52,7 +50,7 @@ public class ActivityService {
         if (princess.getJob() != null) {
             return princess.getJob().getActivityMessage(activity.getActivityName());
         } else {
-            return princess.getName() + "은(는) " + activity.getActivityName() + "을(를) 했다!";
+            return princess.getName() + "은(는) " + activity.getActivityName() + "을(를) 하는 중!";
         }
     }
 }
