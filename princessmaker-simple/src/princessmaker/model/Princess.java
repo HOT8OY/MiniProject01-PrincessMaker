@@ -31,7 +31,7 @@ public class Princess {
     }
     // currentDate를 String타입 yy/MM형식으로 변환하는 메서드
     public String getFormattedDate() {
-        String formatter = currentDate.format(DateTimeFormatter.ofPattern("yy/MM"));
+        String formatter = currentDate.format(DateTimeFormatter.ofPattern("yy년MM월"));
         return formatter;
     }
     // amount만큼 해당 수치를 증가시키는 메서드
